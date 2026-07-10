@@ -57,10 +57,10 @@
     <text x="72" y="266" fill="#8b949e" font-size="17" font-weight="500" letter-spacing="0.4">Open-source builder · Automation · Infrastructure</text>
   </g>
 
-  <g transform="translate(72 286)">
-    <circle cx="0" cy="0" r="3.5" fill="#64d8ff"/>
-    <circle cx="15" cy="0" r="3.5" fill="#66e7bd"/>
-    <circle cx="30" cy="0" r="3.5" fill="#a893ff"/>
-    <circle cx="45" cy="0" r="3.5" fill="#ff9fc7"/>
+  <g transform="translate(72 286)" shape-rendering="geometricPrecision">
+    <circle cx="0" cy="0" r="4" fill="#64d8ff"/>
+    <circle cx="15" cy="0" r="4" fill="#66e7bd"/>
+    <circle cx="30" cy="0" r="4" fill="#a893ff"/>
+    <circle cx="45" cy="0" r="4" fill="#ff9fc7"/>
   </g>
 </svg>
