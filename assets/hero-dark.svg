@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="320" viewBox="0 0 1200 320" role="img" aria-labelledby="title description">
+  <title id="title">Hi, I'm Will.</title>
+  <desc id="description">A clean, dark aurora banner introducing Will, an open-source builder focused on automation and infrastructure.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1117"/>
+      <stop offset="1" stop-color="#161b22"/>
+    </linearGradient>
+    <linearGradient id="aurora" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#64d8ff"/>
+      <stop offset="0.34" stop-color="#66e7bd"/>
+      <stop offset="0.68" stop-color="#a893ff"/>
+      <stop offset="1" stop-color="#ff9fc7"/>
+    </linearGradient>
+    <radialGradient id="cyan-glow">
+      <stop offset="0" stop-color="#37c8ed" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#37c8ed" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="violet-glow">
+      <stop offset="0" stop-color="#806bf2" stop-opacity="0.36"/>
+      <stop offset="1" stop-color="#806bf2" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="pink-glow">
+      <stop offset="0" stop-color="#d96d9e" stop-opacity="0.3"/>
+      <stop offset="1" stop-color="#d96d9e" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="22"/>
+    </filter>
+    <clipPath id="panel-clip">
+      <rect x="1" y="1" width="1198" height="318" rx="28"/>
+    </clipPath>
+  </defs>
+
+  <rect x="1" y="1" width="1198" height="318" rx="28" fill="url(#background)" stroke="#30363d" stroke-width="2"/>
+
+  <g clip-path="url(#panel-clip)">
+    <circle cx="930" cy="56" r="175" fill="url(#cyan-glow)" filter="url(#blur)"/>
+    <circle cx="1080" cy="170" r="185" fill="url(#violet-glow)" filter="url(#blur)"/>
+    <circle cx="835" cy="292" r="155" fill="url(#pink-glow)" filter="url(#blur)"/>
+
+    <path d="M630 264C744 155 826 102 925 101C1036 99 1087 151 1212 109" fill="none" stroke="url(#aurora)" stroke-width="34" stroke-linecap="round" opacity="0.13"/>
+    <path d="M620 245C739 145 823 116 922 119C1027 122 1102 165 1214 126" fill="none" stroke="url(#aurora)" stroke-width="5" stroke-linecap="round" opacity="0.92"/>
+    <path d="M685 294C786 209 873 184 972 189C1078 195 1137 224 1225 190" fill="none" stroke="url(#aurora)" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+
+    <circle cx="785" cy="168" r="7" fill="#161b22" stroke="#70e3dd" stroke-width="3"/>
+    <circle cx="932" cy="119" r="10" fill="#161b22" stroke="#aa9aff" stroke-width="3"/>
+    <circle cx="1098" cy="160" r="6" fill="#161b22" stroke="#ffa5c9" stroke-width="3"/>
+    <circle cx="1037" cy="89" r="42" fill="#ffffff" fill-opacity="0.05" stroke="#ffffff" stroke-opacity="0.2"/>
+    <circle cx="1037" cy="89" r="18" fill="url(#aurora)" fill-opacity="0.6"/>
+  </g>
+
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+    <text x="72" y="92" fill="#8ca4bd" font-size="18" font-weight="600" letter-spacing="3">HELLO</text>
+    <text x="72" y="166" fill="#f4f7fb" font-size="60" font-weight="750" letter-spacing="-2">Hi, I'm Will.</text>
+    <text x="72" y="216" fill="#c9d1d9" font-size="27" font-weight="500">Practical software. Fewer 3 a.m. surprises.</text>
+    <text x="72" y="266" fill="#8b949e" font-size="17" font-weight="500" letter-spacing="0.4">Open-source builder · Automation · Infrastructure</text>
+  </g>
+
+  <g transform="translate(72 286)">
+    <circle cx="0" cy="0" r="3.5" fill="#64d8ff"/>
+    <circle cx="15" cy="0" r="3.5" fill="#66e7bd"/>
+    <circle cx="30" cy="0" r="3.5" fill="#a893ff"/>
+    <circle cx="45" cy="0" r="3.5" fill="#ff9fc7"/>
+  </g>
+</svg>
