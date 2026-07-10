@@ -24,11 +24,6 @@ I build practical tools for automation, usage tracking, and the less glamorous p
   <img alt="Will's contribution graph with an animated snake" src="https://raw.githubusercontent.com/Willxup/Willxup/output/snake.svg" width="100%">
 </picture>
 
-### A couple of useful things
-
-- [**CPA Usage Keeper**](https://github.com/Willxup/cpa-usage-keeper) — usage data that sticks around long enough to become useful.
-- [**Bootstrap**](https://github.com/Willxup/bootstrap) — Linux setup without the copy-paste ritual.
-
 ### Usually within reach
 
 `Go` · `C#` · `React` · `Shell` · `Docker` · `Linux` · `GitHub Actions`
