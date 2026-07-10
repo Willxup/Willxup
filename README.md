@@ -4,7 +4,7 @@
   <img alt="Hi, I'm Will — practical software and fewer 3 a.m. surprises" src="./assets/hero-light.svg" width="100%">
 </picture>
 
-<br>
+<p><br></p>
 
 I build practical tools for automation, usage tracking, and the less glamorous parts of keeping systems running.
 
