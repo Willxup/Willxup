@@ -2,6 +2,7 @@ import { readFile, writeFile } from "node:fs/promises";
 import { pathToFileURL } from "node:url";
 
 const CONTRIBUTION_RULE = /\.c\.(c[0-9a-z]+)\{([^{}]*)\}/g;
+const LOOP_CLASSES = ["c", "s", "u"];
 
 export function limitSnakeBites(svg, interval) {
   if (!Number.isInteger(interval) || interval <= 0) {
@@ -35,20 +36,57 @@ export function limitSnakeBites(svg, interval) {
   return transformed.replace(/\.u\{(?!display:none;)/, ".u{display:none;");
 }
 
-async function main() {
-  const [rawInterval, ...files] = process.argv.slice(2);
-  const interval = Number(rawInterval);
+export function setSnakeLoopDuration(svg, durationMs) {
+  if (!Number.isInteger(durationMs) || durationMs <= 0) {
+    throw new TypeError("Loop duration must be a positive integer.");
+  }
 
-  if (!rawInterval || files.length === 0) {
+  let transformed = svg;
+
+  for (const className of LOOP_CLASSES) {
+    const rulePattern = new RegExp(`\\.${className}\\{([^{}]*)\\}`);
+    const rule = transformed.match(rulePattern);
+
+    if (!rule) {
+      throw new Error(`SVG contains no .${className} animation rule.`);
+    }
+
+    const declarations = rule[1].replace(
+      /(animation:none[^;]*?)\b\d+ms\b/,
+      `$1${durationMs}ms`,
+    );
+
+    if (declarations === rule[1]) {
+      throw new Error(`SVG .${className} rule contains no loop duration.`);
+    }
+
+    transformed = transformed.replace(
+      rulePattern,
+      `.${className}{${declarations}}`,
+    );
+  }
+
+  return transformed;
+}
+
+async function main() {
+  const [rawInterval, rawDuration, ...files] = process.argv.slice(2);
+  const interval = Number(rawInterval);
+  const durationMs = Number(rawDuration);
+
+  if (!rawInterval || !rawDuration || files.length === 0) {
     throw new Error(
-      "Usage: node scripts/limit-snake-bites.mjs <interval> <svg-file> [svg-file...]",
+      "Usage: node scripts/limit-snake-bites.mjs <interval> <duration-ms> <svg-file> [svg-file...]",
     );
   }
 
   const transformedFiles = await Promise.all(
     files.map(async (file) => ({
       file,
-      content: limitSnakeBites(await readFile(file, "utf8"), interval),
+      content: setSnakeLoopDuration(
+        limitSnakeBites(await readFile(file, "utf8"), interval),
+        durationMs,
+      ),
     })),
   );
 

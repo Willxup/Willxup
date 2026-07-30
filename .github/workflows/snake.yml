@@ -18,6 +18,8 @@ concurrency:
 env:
   # 1 keeps every contribution bite while leaving the generated loop duration unchanged.
   SNAKE_BITE_INTERVAL: "1"
+  # Keep the full loop at the previously approved 37.7 seconds.
+  SNAKE_LOOP_DURATION_MS: "37700"
 
 jobs:
   generate:
@@ -41,10 +43,11 @@ jobs:
         with:
           node-version: 20
 
-      - name: Keep every contribution bite enabled
+      - name: Configure contribution bites and loop duration
         run: >-
           node scripts/limit-snake-bites.mjs
           "$SNAKE_BITE_INTERVAL"
+          "$SNAKE_LOOP_DURATION_MS"
           dist/snake.svg
           dist/snake-dark.svg
 
