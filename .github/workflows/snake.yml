@@ -16,8 +16,8 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  # 4 means only every fourth animated contribution is eaten per loop.
-  SNAKE_BITE_INTERVAL: "4"
+  # 1 keeps every contribution bite while leaving the generated loop duration unchanged.
+  SNAKE_BITE_INTERVAL: "1"
 
 jobs:
   generate:
@@ -41,7 +41,7 @@ jobs:
         with:
           node-version: 20
 
-      - name: Keep most contribution cells intact
+      - name: Keep every contribution bite enabled
         run: >-
           node scripts/limit-snake-bites.mjs
           "$SNAKE_BITE_INTERVAL"
