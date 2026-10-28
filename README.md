@@ -16,8 +16,6 @@ I build practical tools for automation, usage tracking, and the less glamorous p
 
 ### Commit history, with a snake
 
-<p align="center"><sub>Not every contribution gives in on the first pass.</sub></p>
-
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Willxup/Willxup/output/snake-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Willxup/Willxup/output/snake.svg">
