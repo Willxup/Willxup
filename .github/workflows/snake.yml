@@ -43,7 +43,10 @@ jobs:
         with:
           node-version: 20
 
-      - name: Configure contribution bites and loop duration
+      - name: Verify snake animation processing
+        run: node --test scripts/snake-animation.test.mjs
+
+      - name: Shorten detours and configure contribution animation
         run: >-
           node scripts/limit-snake-bites.mjs
           "$SNAKE_BITE_INTERVAL"

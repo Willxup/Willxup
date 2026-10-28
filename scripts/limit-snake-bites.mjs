@@ -1,5 +1,6 @@
 import { readFile, writeFile } from "node:fs/promises";
 import { pathToFileURL } from "node:url";
+import { optimizeSnakeRoute } from "./optimize-snake-route.mjs";
 
 const CONTRIBUTION_RULE = /\.c\.(c[0-9a-z]+)\{([^{}]*)\}/g;
 const LOOP_CLASSES = ["c", "s", "u"];
@@ -51,14 +52,11 @@ export function setSnakeLoopDuration(svg, durationMs) {
       throw new Error(`SVG contains no .${className} animation rule.`);
     }
 
-    const declarations = rule[1].replace(
-      /(animation:none[^;]*?)\b\d+ms\b/,
-      `$1${durationMs}ms`,
-    );
-
-    if (declarations === rule[1]) {
+    const durationPattern = /(animation:none[^;]*?)\b\d+ms\b/;
+    if (!durationPattern.test(rule[1])) {
       throw new Error(`SVG .${className} rule contains no loop duration.`);
     }
+    const declarations = rule[1].replace(durationPattern, `$1${durationMs}ms`);
 
     transformed = transformed.replace(
       rulePattern,
@@ -84,7 +82,7 @@ async function main() {
     files.map(async (file) => ({
       file,
       content: setSnakeLoopDuration(
-        limitSnakeBites(await readFile(file, "utf8"), interval),
+        limitSnakeBites(optimizeSnakeRoute(await readFile(file, "utf8")), interval),
         durationMs,
       ),
     })),
